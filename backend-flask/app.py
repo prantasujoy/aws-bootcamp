@@ -10,7 +10,8 @@ from opentelemetry.instrumentation.flask import FlaskInstrumentor
 from opentelemetry.instrumentation.requests import RequestsInstrumentor
 from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
 
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import ConsoleSpanExporter
+from opentelemetry.sdk.trace.export import ConsoleSpanExporter
+
 
 
 from opentelemetry.sdk.trace import TracerProvider
@@ -35,7 +36,7 @@ processor = BatchSpanProcessor(OTLPSpanExporter())
 provider.add_span_processor(processor)
 
 simple_processor = SimpleSpanProcessor(ConsoleSpanExporter())
-simple_provider.add_span_processor(simple_processor)
+provider.add_span_processor(simple_processor)
 
 
 trace.set_tracer_provider(provider)
