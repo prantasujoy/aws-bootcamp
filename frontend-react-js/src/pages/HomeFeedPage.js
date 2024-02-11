@@ -7,7 +7,7 @@ import ActivityFeed from "../components/ActivityFeed";
 import ActivityForm from "../components/ActivityForm";
 import ReplyForm from "../components/ReplyForm";
 
-import { Auth } from "aws-amplify";
+import {Auth} from 'aws-amplify'
 
 // [TODO] Authenication
 import Cookies from "js-cookie";
