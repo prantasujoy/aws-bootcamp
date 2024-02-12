@@ -15,17 +15,14 @@ export default function SigninPage() {
     setCognitoErrors("");
     event.preventDefault();
     try {
-      Auth.signIn(username, password)
-        .then((user) => {
-          localStorage.setItem(
-            "access_token",
-            user.signInUserSession.accessToken.jwtToken
-          );
-          window.location.href = "/";
-        })
-        .catch((err) => {
-          console.log("Error!", err);
-        });
+      Auth.signIn(email, password).then((user) => {
+       
+        localStorage.setItem(
+          "access_token",
+          user.signInUserSession.accessToken.jwtToken
+        );
+        window.location.href = "/";
+      });
     } catch (error) {
       if (error.code == "UserNotConfirmedException") {
         window.location.href = "/confirm";
